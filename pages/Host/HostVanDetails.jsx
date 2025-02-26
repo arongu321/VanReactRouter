@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 export default function HostVanDetails() {
     // Create React state for host van
@@ -19,28 +20,34 @@ export default function HostVanDetails() {
     console.log(hostVan);
 
     return (
-        <div className="host-van-details-container">
-            <Link to="/host/vans" className="link-button">
+        <section>
+            {/* Go back to host vans page by making it relative to the path not route*/}
+            <Link to=".." relative="path" className="link-button">
                 <span>&#10229;</span>Back to All Vans
             </Link>
             {hostVan ? (
-                <div className="host-van-details">
-                    <img
-                        src={hostVan.imageUrl}
-                        alt={`Image of ${hostVan.name}`}
-                        className="host-van-details-img"
-                    />
-                    <div className="host-van-details-info">
-                        <i className={`van-type ${hostVan.type}`}>
-                            {hostVan.type}
-                        </i>
-                        <h2>{hostVan.name}</h2>
-                        <p>${hostVan.price}/day</p>
+                <div className="host-van-details-container">
+                    <div className="host-van-details-card">
+                        <img
+                            src={hostVan.imageUrl}
+                            alt={`Image of ${hostVan.name}`}
+                            className="host-van-details-img"
+                        />
+                        <div className="host-van-details-info">
+                            <i className={`van-type ${hostVan.type} selected`}>
+                                {hostVan.type}
+                            </i>
+                            <h2>{hostVan.name}</h2>
+                            <p>
+                                <span>${hostVan.price}</span>/day
+                            </p>
+                        </div>
                     </div>
                 </div>
             ) : (
                 <h2>Loading...</h2>
             )}
-        </div>
+            <Outlet />
+        </section>
     );
 }

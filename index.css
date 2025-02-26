@@ -210,6 +210,7 @@ div.vans-list-container button {
     font-weight: 500;
     border-radius: 5px;
     background-color: #ffead0;
+    text-transform: capitalize;
     color: #4d4d4d;
     transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -373,4 +374,35 @@ div.host-van-info h2 {
 
 div.host-van-info p {
     margin-block: 10px;
+}
+
+/* Host van details page */
+div.host-van-details-container {
+    padding: 24px;
+    background-color: var(--white);
+    margin: 35px 25px;
+}
+
+div.host-van-details-card {
+    display: flex;
+    align-items: center;
+}
+
+div.host-van-details-card img.host-van-details-img {
+    height: 160px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
+div.host-van-details-info > h2 {
+    margin-bottom: 0;
+}
+
+div.host-van-details-info > p {
+    margin-block: 2px;
+}
+
+div.host-van-details-info > p > span {
+    font-size: 1.25rem;
+    font-weight: 900;
 }

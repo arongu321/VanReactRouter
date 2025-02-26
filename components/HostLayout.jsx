@@ -24,7 +24,7 @@ export default function HostLayout() {
                     // If you remove the end prop, the /host link would be active
                     // when the URL is /host/income.
                     end
-                    to="/host"
+                    to="."
                 >
                     Dashboard
                 </NavLink>
