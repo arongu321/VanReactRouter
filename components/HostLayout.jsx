@@ -28,21 +28,22 @@ export default function HostLayout() {
                 >
                     Dashboard
                 </NavLink>
+                {/* The to attributes in NavLink use URLs relative to the parent URL making these Relative Links*/}
                 <NavLink
                     style={({ isActive }) => (isActive ? activeStyle : null)}
-                    to="/host/income"
+                    to="income"
                 >
                     Income
                 </NavLink>
                 <NavLink
                     style={({ isActive }) => (isActive ? activeStyle : null)}
-                    to="/host/vans"
+                    to="vans"
                 >
                     Vans
                 </NavLink>
                 <NavLink
                     style={({ isActive }) => (isActive ? activeStyle : null)}
-                    to="/host/reviews"
+                    to="reviews"
                 >
                     Reviews
                 </NavLink>
