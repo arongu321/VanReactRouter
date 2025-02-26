@@ -10,6 +10,7 @@
     --white: #ffffff;
     --dark-orange: #ff7a00;
     --lighter-orange: #ffcc8d;
+    --alt-black: #161616;
 }
 
 html,
@@ -31,7 +32,6 @@ body {
 
 /* Header section */
 header {
-    border: 2px solid black;
     display: flex;
     align-items: center;
     padding-block: 10px;
@@ -134,6 +134,7 @@ div.about-page-content p {
     line-height: 22px;
 }
 
+/* About page call to action(cta) section */
 div.about-page-cta {
     background-color: var(--lighter-orange);
     padding-inline: 32px; /* 32px left and right */
@@ -216,7 +217,7 @@ div.vans-list-container button {
 
 .van-type.luxury:hover,
 .van-type.luxury.selected {
-    background-color: #161616;
+    background-color: var(--alt-black);
 }
 
 .van-type.clear-filters {
@@ -229,9 +230,62 @@ div.vans-list-container button {
     border-radius: 5px;
     text-decoration: underline;
     background-color: transparent;
-    color: #4d4d4d;
+    color: var(--alt-black);
 }
 
 i[class*='van-type-'] {
     padding: 7px 14px;
+}
+
+/* Van details page */
+div.van-details-container {
+    padding: 23px;
+}
+
+div.van-details-container .back-button {
+    color: var(--black);
+    text-decoration: none;
+}
+
+div.van-details-container .back-button:visited {
+}
+
+div.van-details-container .back-button span {
+    text-decoration: underline;
+}
+
+div.van-details {
+    display: flex;
+    flex-direction: column;
+    color: var(--alt-black);
+}
+
+div.van-details img {
+    border-radius: 5px;
+    margin-block: 47px;
+}
+
+div.van-details h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+div.van-details > i {
+    align-self: flex-start;
+}
+
+div.van-details p.van-price {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+div.van-details p.van-price span {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+div.van-details .link-button {
+    background-color: var(--orange);
+    color: var(--white);
+    font-size: 1.125rem;
 }

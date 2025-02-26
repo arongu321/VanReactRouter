@@ -23,7 +23,7 @@ export default function Vans() {
                 <img
                     src={van.imageUrl}
                     className="van-img"
-                    alt={van.description}
+                    alt={`Image of ${van.name}`}
                 />
                 <div className="van-info">
                     <p>{van.name}</p>
