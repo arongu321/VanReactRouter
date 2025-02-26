@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import About from './pages/About';
 import Vans from './pages/Vans';
 import Home from './pages/Home';
+import './server';
 
 export default function App() {
     return (
