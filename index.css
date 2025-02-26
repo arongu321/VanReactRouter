@@ -63,7 +63,7 @@ header a:hover {
 header a.active-link {
     font-weight: bold;
     text-decoration: underline;
-    color: var(alt-black);
+    color: var(--alt-black);
 }
 
 /* Footer section */
@@ -405,4 +405,23 @@ div.host-van-details-info > p {
 div.host-van-details-info > p > span {
     font-size: 1.25rem;
     font-weight: 900;
+}
+
+/* Host van details nav bar */
+nav.host-van-details-nav {
+    margin-top: 25px;
+    display: flex;
+}
+
+nav.host-van-details-nav a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    padding-right: 30px;
+}
+
+nav.host-van-details-nav a.active-link {
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--alt-black);
 }

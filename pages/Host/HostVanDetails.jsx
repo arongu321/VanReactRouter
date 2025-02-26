@@ -1,7 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, NavLink } from 'react-router-dom';
 
 export default function HostVanDetails() {
     // Create React state for host van
@@ -43,11 +41,38 @@ export default function HostVanDetails() {
                             </p>
                         </div>
                     </div>
+                    <nav className="host-van-details-nav">
+                        <NavLink
+                            to="."
+                            end
+                            className={({ isActive }) =>
+                                isActive ? 'active-link' : null
+                            }
+                        >
+                            Details
+                        </NavLink>
+                        <NavLink
+                            to="pricing"
+                            className={({ isActive }) =>
+                                isActive ? 'active-link' : null
+                            }
+                        >
+                            Pricing
+                        </NavLink>
+                        <NavLink
+                            to="photos"
+                            className={({ isActive }) =>
+                                isActive ? 'active-link' : null
+                            }
+                        >
+                            Photos
+                        </NavLink>
+                        <Outlet />
+                    </nav>
                 </div>
             ) : (
                 <h2>Loading...</h2>
             )}
-            <Outlet />
         </section>
     );
 }
