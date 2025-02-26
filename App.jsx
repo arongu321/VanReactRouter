@@ -19,6 +19,7 @@ export default function App() {
                 <Route element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    {/* No nesting for vans because there's no shared UI that these routes use */}
                     <Route path="/vans" element={<Vans />} />
                     <Route path="/vans/:vanId" element={<VanDetails />} />
                     <Route path="host" element={<HostLayout />}>

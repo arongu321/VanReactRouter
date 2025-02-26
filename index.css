@@ -11,6 +11,8 @@
     --dark-orange: #ff7a00;
     --lighter-orange: #ffcc8d;
     --alt-black: #161616;
+    --alt2-black: #252525;
+    --light-gray: #aaaaaa;
 }
 
 html,
@@ -56,6 +58,19 @@ header a {
 header a:hover {
     color: #161616;
     text-decoration: underline;
+}
+
+/* Footer section */
+footer {
+    background-color: var(--alt2-black);
+    color: var(--light-gray);
+    text-align: center;
+    padding-block: 25px;
+}
+
+/* Main content section */
+main {
+    margin-bottom: 80px;
 }
 
 /* Home page container */
