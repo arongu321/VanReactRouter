@@ -166,7 +166,7 @@ div.vans-list-container {
     margin-top: 55px;
 }
 
-div.van-card > img.van-img {
+div.van-card img.van-img {
     max-width: 100%;
     border-radius: 5px;
 }
