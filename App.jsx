@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import VanDetails from './pages/Vans/VanDetails';
 import Layout from './components/Layout';
 import './server';
-
 import Dashboard from './pages/Host/Dashboard';
 import Income from './pages/Host/Income';
 import Reviews from './pages/Host/Reviews';
@@ -18,10 +17,9 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route element={<Layout />}>
+                <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    {/* No nesting for vans because there's no shared UI that these routes use */}
                     <Route path="/vans" element={<Vans />} />
                     <Route path="/vans/:vanId" element={<VanDetails />} />
                     <Route path="host" element={<HostLayout />}>

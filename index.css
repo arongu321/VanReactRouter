@@ -328,3 +328,49 @@ nav.host-nav a:hover {
     text-decoration: underline;
     font-weight: 600;
 }
+
+/* Host vans page */
+div.host-vans-container {
+    margin-inline: 23px;
+}
+
+div.host-vans-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+div.host-vans-list > div.host-van-card {
+    padding-inline: 15px; /* 15px left and right */
+}
+
+div.host-van-card > a {
+    padding-block: 15px; /* 15px top and bottom */
+    padding-left: 24px;
+    border-radius: 5px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    color: var(--alt-black);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div.host-van-card img {
+    height: 66px;
+    max-width: 100%;
+    border-radius: 5px;
+    margin-right: 17px;
+}
+
+div.host-van-info h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-block: 10px;
+}
+
+div.host-van-info p {
+    margin-block: 10px;
+}
