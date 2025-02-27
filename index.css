@@ -28,6 +28,10 @@ a {
     color: unset; /* Remove default color */
 }
 
+h1 {
+    margin-left: 23px;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }

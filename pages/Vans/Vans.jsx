@@ -8,10 +8,15 @@ export default function Vans() {
     // Used to access URL query search parameters
     const [searchParams, setSearchParams] = useSearchParams();
 
+    // Used to track loading state
+    const [loading, setLoading] = React.useState(false);
+
     React.useEffect(() => {
         async function fetchVans() {
+            setLoading(true);
             const data = await getVans();
             setVans(data);
+            setLoading(false);
         }
         fetchVans();
     }, []);
@@ -60,6 +65,10 @@ export default function Vans() {
             }
             return prevParams;
         });
+    }
+
+    if (loading) {
+        return <h1>Loading...</h1>;
     }
 
     return (
