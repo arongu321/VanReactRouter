@@ -5,6 +5,8 @@
 :root {
     --black: #000000;
     --med-white: #fff7ed;
+    --alt-white: #ffead0;
+    --alt-white2: #ffddb2;
     --dark-gray: #4d4d4d;
     --orange: #ff8c38;
     --white: #ffffff;
@@ -13,6 +15,8 @@
     --alt-black: #161616;
     --alt2-black: #252525;
     --light-gray: #aaaaaa;
+    --lighter-gray: #8c8c8c;
+    --lighter-gray2: #c7c7c7;
     --red: #ff0000;
 }
 
@@ -562,4 +566,205 @@ div.login-container > form.login-form > button {
 
 h3.login-error {
     color: var(--red);
+}
+
+/* Host dashboard page */
+/* Dashboard earnings section */
+section.host-dashboard-earnings {
+    background-color: var(--alt-white);
+    padding: 36px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.host-dashboard-earnings > div.info > h1 {
+    font-size: 2.25rem;
+    color: var(--alt-black);
+    margin: 0;
+}
+
+section.host-dashboard-earnings > div.info > p {
+    color: var(--dark-gray);
+}
+
+section.host-dashboard-earnings > div.info > p > span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+section.host-dashboard-earnings > div.info > h2 {
+    margin: 0;
+    font-size: 2.375rem;
+    color: var(--alt-black);
+    font-weight: 900;
+}
+
+/* Dashboard reviews section */
+section.host-dashboard-reviews {
+    background-color: var(--alt-white2);
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+
+section.host-dashboard-reviews > h2 {
+    margin: 0;
+}
+
+section.host-dashboard-reviews .star {
+    color: var(--orange);
+    margin-left: 15px;
+    font-size: 1.5625rem;
+}
+
+section.host-dashboard-reviews p {
+    margin-left: 5px;
+    font-size: 1.25rem;
+    color: var(--dark-gray);
+    margin-right: auto;
+}
+
+section.host-dashboard-reviews p > span {
+    font-weight: bold;
+    color: var(--black);
+}
+
+/* Dashboard vans section */
+section.host-dashboard-vans {
+    padding: 40px 25px;
+}
+
+section.host-dashboard-vans > div.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.host-dashboard-vans div.host-vans-list {
+    padding-inline: 0;
+}
+
+/* Host Income page */
+section.host-income {
+    padding-inline: 26px;
+    color: var(--alt-black);
+}
+
+section.host-income > p {
+    color: var(--dark-gray);
+}
+
+section.host-income > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+section.host-income > h2 {
+    font-size: 2.375rem;
+    color: var(--alt-black);
+    font-weight: 900;
+}
+
+img.graph {
+    width: 100%;
+    max-width: 500px;
+}
+
+section.host-income div.info-header > p {
+    color: var(--dark-gray);
+}
+
+section.host-income div.info-header > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+section.host-income div.info-header > h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 60px;
+}
+
+section.host-income div.transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 35px 30px;
+    border-radius: 5px;
+}
+
+section.host-income div.transaction > h3 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+section.host-income div.transaction > p {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--dark-gray);
+}
+
+section.host-reviews {
+    padding-inline: 26px;
+    color: var(--alt-black);
+}
+
+section.host-reviews div.top-text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+section.host-reviews div.top-text > h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0;
+    margin-right: 20px;
+}
+
+section.host-reviews div.top-text > p {
+    margin: 0;
+    color: var(--dark-gray);
+}
+
+section.host-reviews div.top-text > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+section.host-reviews > img {
+    margin-bottom: 36px;
+}
+
+section.host-reviews div.review {
+    margin-block: 25px;
+}
+
+section.host-reviews div.review div.info {
+    display: flex;
+}
+
+section.host-reviews div.review p.name {
+    color: var(--alt-black);
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+section.host-reviews div.review p.date {
+    color: var(--lighter-gray);
+}
+
+section.host-reviews hr {
+    background-color: var(--lighter-gray2);
+    height: 1px;
+    border: 0;
+}
+
+section.host-reviews .review-star {
+    color: var(--lighter-orange);
+    margin-right: 5px;
 }
