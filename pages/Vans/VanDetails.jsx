@@ -15,10 +15,16 @@ export default function VanDetails() {
     // If no filters were applied, search will be an empty string
     const search = location.state?.search || '';
 
+    // Parse the search query
+    const searchParams = new URLSearchParams(search);
+
     return (
         <div className="van-details-container">
             <Link to={`..?${search}`} relative="path" className="back-button">
-                &larr; <span>Back to all vans</span>
+                &larr;{' '}
+                <span>
+                    Back to {search ? searchParams.get('type') : 'all'} vans
+                </span>
             </Link>
             {van ? (
                 <div className="van-details">
