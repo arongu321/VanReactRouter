@@ -270,9 +270,12 @@ div.van-list-filter-buttons {
     flex-wrap: wrap;
 }
 
-div.van-list-filter-buttons > a {
-    margin-right: 15px;
+div.van-list-filter-buttons > button {
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
 }
+
 /* Van details page */
 div.van-details-container {
     padding: 23px;

@@ -38,7 +38,7 @@ export default function Vans() {
                     alt={`Image of ${van.name}`}
                 />
                 <div className="van-info">
-                    <p>{van.name}</p>
+                    <h2>{van.name}</h2>
                     <p>
                         ${van.price}
                         <span>/day</span>
@@ -52,34 +52,30 @@ export default function Vans() {
         <div className="vans-container">
             <h2>Explore our van options</h2>
             <div className="van-list-filter-buttons">
-                <Link
+                <button
+                    onClick={() => setSearchParams({ type: 'simple' })}
                     className="van-type simple"
-                    to="?type=simple"
-                    aria-label="Filter vans by type: simple"
                 >
                     Simple
-                </Link>
-                <Link
-                    className="van-type rugged"
-                    to="?type=rugged"
-                    aria-label="Filter vans by type: rugged"
-                >
-                    Rugged
-                </Link>
-                <Link
+                </button>
+                <button
+                    onClick={() => setSearchParams({ type: 'luxury' })}
                     className="van-type luxury"
-                    to="?type=luxury"
-                    aria-label="Filter vans by type: luxury"
                 >
                     Luxury
-                </Link>
-                <Link
-                    className="van-type clear-filters"
-                    to=""
-                    aria-label="Clear all filters"
+                </button>
+                <button
+                    onClick={() => setSearchParams({ type: 'rugged' })}
+                    className="van-type rugged"
                 >
-                    Clear Filters
-                </Link>
+                    Rugged
+                </button>
+                <button
+                    onClick={() => setSearchParams({})}
+                    className="van-type clear-filters"
+                >
+                    Clear filters
+                </button>
             </div>
             <div className="vans-list-container">{vanElements}</div>
         </div>
