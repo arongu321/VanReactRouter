@@ -14,7 +14,8 @@ import HostVanDetails from './pages/Host/HostVanDetails';
 import HostVanPhotos from './pages/Host/HostVanPhotos';
 import HostVanPricing from './pages/Host/HostVanPricing';
 import HostVanInfo from './pages/Host/HostVanInfo';
-import NotFound from './components/NotFound';
+import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 
 import './server';
 
@@ -27,6 +28,7 @@ export default function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/vans" element={<Vans />} />
                     <Route path="/vans/:vanId" element={<VanDetails />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="host" element={<HostLayout />}>
                         <Route index element={<Dashboard />} />
                         <Route path="income" element={<Income />} />

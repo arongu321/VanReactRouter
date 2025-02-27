@@ -498,3 +498,56 @@ div.not-found-container > a {
     text-align: center;
     border-radius: 5px;
 }
+
+/* Login page */
+div.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 23px;
+    margin-top: 55px;
+}
+
+div.login-container > h1 {
+    line-height: 24px;
+    margin-bottom: 40px;
+}
+
+div.login-container > form.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+div.login-container > form.login-form > input {
+    height: 42px;
+    border: 1px solid rgba(209, 213, 219);
+    text-indent: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+}
+
+div.login-container > form.login-form > input:first-of-type {
+    border-radius: 5px 5px 0px 0px; /* Top border radius */
+}
+
+div.login-container > form.login-form > input:last-of-type {
+    border-radius: 0px 0px 5px 5px; /* Bottom border radius */
+    border-top: none;
+}
+
+div.login-container > form.login-form > input:focus {
+    outline: none;
+}
+
+div.login-container > form.login-form > button {
+    background-color: var(--orange);
+    color: var(--white);
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    height: 42px;
+    cursor: pointer;
+    margin-top: 20px;
+}
