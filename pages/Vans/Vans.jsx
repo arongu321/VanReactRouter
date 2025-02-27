@@ -51,6 +51,36 @@ export default function Vans() {
     return (
         <div className="vans-container">
             <h2>Explore our van options</h2>
+            <div className="van-list-filter-buttons">
+                <Link
+                    className="van-type simple"
+                    to="?type=simple"
+                    aria-label="Filter vans by type: simple"
+                >
+                    Simple
+                </Link>
+                <Link
+                    className="van-type rugged"
+                    to="?type=rugged"
+                    aria-label="Filter vans by type: rugged"
+                >
+                    Rugged
+                </Link>
+                <Link
+                    className="van-type luxury"
+                    to="?type=luxury"
+                    aria-label="Filter vans by type: luxury"
+                >
+                    Luxury
+                </Link>
+                <Link
+                    className="van-type clear-filters"
+                    to=""
+                    aria-label="Clear all filters"
+                >
+                    Clear Filters
+                </Link>
+            </div>
             <div className="vans-list-container">{vanElements}</div>
         </div>
     );

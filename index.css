@@ -23,6 +23,11 @@ body {
     background-color: var(--med-white);
 }
 
+a {
+    text-decoration: unset; /* Remove underline */
+    color: unset; /* Remove default color */
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -204,8 +209,8 @@ div.vans-list-container button {
 }
 
 .van-type {
-    height: 35px;
-    padding: 5px 25px;
+    height: 34px;
+    padding: 6px 26px;
     font-style: normal;
     font-weight: 500;
     border-radius: 5px;
@@ -259,6 +264,15 @@ i[class*='van-type-'] {
     padding: 7px 14px;
 }
 
+/* Van filter buttons */
+div.van-list-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.van-list-filter-buttons > a {
+    margin-right: 15px;
+}
 /* Van details page */
 div.van-details-container {
     padding: 23px;
