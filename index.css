@@ -75,6 +75,13 @@ header a.active-link {
     color: var(--alt-black);
 }
 
+header a > img.avatar-icon {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+}
+
 /* Footer section */
 footer {
     background-color: var(--alt2-black);
