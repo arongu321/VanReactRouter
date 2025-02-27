@@ -425,3 +425,32 @@ nav.host-van-details-nav a.active-link {
     text-decoration: underline;
     color: var(--alt-black);
 }
+
+/* Van Details Info Section */
+div.host-van-details-info-section > p {
+    font-size: 0.875rem;
+    margin-top: 25px;
+}
+
+div.host-van-details-info-section > p.van-category {
+    text-transform: capitalize;
+}
+
+/* Van Details Price Section */
+div.host-van-details-pricing-section {
+    margin-top: 25px;
+}
+
+div.host-van-details-pricing-section > p.host-van-price > span {
+    font-size: 1.5rem;
+}
+
+/* Van Details Photos Section */
+div.host-van-details-photos-section {
+    margin-top: 25px;
+}
+
+div.host-van-details-photos-section > img {
+    height: 105px;
+    border-radius: 5px;
+}

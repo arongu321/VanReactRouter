@@ -21,7 +21,7 @@ export default function HostVanDetails() {
         <section>
             {/* Go back to host vans page by making it relative to the path not route*/}
             <Link to=".." relative="path" className="link-button">
-                <span>&#10229;</span>Back to All Vans
+                &larr;<span>Back to All Vans</span>
             </Link>
             {hostVan ? (
                 <div className="host-van-details-container">
@@ -67,8 +67,8 @@ export default function HostVanDetails() {
                         >
                             Photos
                         </NavLink>
-                        <Outlet />
                     </nav>
+                    <Outlet context={hostVan} />
                 </div>
             ) : (
                 <h2>Loading...</h2>
