@@ -1,4 +1,5 @@
 import React from 'react';
+import { getVans } from '../../api';
 import { Link, useSearchParams } from 'react-router-dom';
 
 export default function Vans() {
@@ -8,15 +9,11 @@ export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams();
 
     React.useEffect(() => {
-        fetch('/api/vans')
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return res.json();
-            })
-            .then((data) => setVans(data.vans))
-            .catch((error) => console.error('Fetch error:', error));
+        async function fetchVans() {
+            const data = await getVans();
+            setVans(data);
+        }
+        fetchVans();
     }, []);
 
     // Filter vans based on query search parameters for type
