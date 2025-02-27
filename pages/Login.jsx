@@ -19,7 +19,11 @@ export default function Login() {
         loginUser(loginFormData)
             .then((data) => {
                 setError(null);
-                navigate('../host');
+                localStorage.setItem('loggedIn', true);
+
+                // Replace the current entry in the history stack with a new one
+                navigate('../host', { replace: true });
+                window.history.pushState(null, null, '../host');
             })
             .catch((err) => setError(err))
             .finally(() => setStatus('idle'));
@@ -35,7 +39,9 @@ export default function Login() {
 
     return (
         <div className="login-container">
-            {location.state?.message && <h3>{location.state.message}</h3>}
+            {location.state?.message && (
+                <h3 className="login-error">{location.state.message}</h3>
+            )}
             <h1>Sign in to your account</h1>
             {error?.message && <h3 className="login-error">{error.message}</h3>}
             <form onSubmit={handleSubmit} className="login-form">

@@ -13,6 +13,7 @@
     --alt-black: #161616;
     --alt2-black: #252525;
     --light-gray: #aaaaaa;
+    --red: #ff0000;
 }
 
 html,
@@ -557,4 +558,8 @@ div.login-container > form.login-form > button {
     height: 42px;
     cursor: pointer;
     margin-top: 20px;
+}
+
+h3.login-error {
+    color: var(--red);
 }
