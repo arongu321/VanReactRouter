@@ -9,10 +9,8 @@ export default function Vans() {
     // Used to access array of vans
     const [vans, setVans] = React.useState([]);
 
-    // Used to track loading state
+    // Setup loading and error states
     const [loading, setLoading] = React.useState(false);
-
-    // Used to track error state
     const [error, setError] = React.useState(null);
 
     // Filter vans based on query search parameters for type
@@ -29,19 +27,16 @@ export default function Vans() {
             } catch (err) {
                 setError(err);
             } finally {
-                // Set loading to false after the fetch is complete
                 setLoading(false);
             }
         }
         fetchVans();
     }, []);
 
-    // Get filtered vans if there is an active type filter
     const displayedVans = typeFilter
         ? vans.filter((van) => van.type === typeFilter)
         : vans;
 
-    // Render van elements
     const vanElements = displayedVans.map((van) => (
         <div key={van.id} className="van-card">
             <Link
@@ -81,16 +76,12 @@ export default function Vans() {
         });
     }
 
-    // Display loading message if data is still loading
     if (loading) {
-        return <h1 aria-live="polite">Loading...</h1>;
+        return <h1>Loading...</h1>;
     }
 
-    // Display error message if there is an error
     if (error) {
-        return (
-            <h1 aria-live="assertive">There was an error: {error.message}</h1>
-        );
+        return <h1>There was an error: {error.message}</h1>;
     }
 
     return (

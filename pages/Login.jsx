@@ -1,17 +1,19 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { loginUser } from '../api';
+import '../api';
 
 export default function Login() {
     const [loginFormData, setLoginFormData] = React.useState({
         email: '',
         password: '',
     });
-
     const [status, setStatus] = React.useState('idle');
     const [error, setError] = React.useState(null);
     const navigate = useNavigate();
+
     const location = useLocation();
+    const from = location.state?.from || '../host';
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -22,8 +24,7 @@ export default function Login() {
                 localStorage.setItem('loggedIn', true);
 
                 // Replace the current entry in the history stack with a new one
-                navigate('../host', { replace: true });
-                window.history.pushState(null, null, '../host');
+                navigate(from, { replace: true });
             })
             .catch((err) => setError(err))
             .finally(() => setStatus('idle'));

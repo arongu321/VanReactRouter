@@ -1,16 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getHostVans } from '../../api';
 
 export default function HostVans() {
     // Setup host vans React state
     const [hostVans, setHostVans] = React.useState([]);
-    // Fetch host vans data
+
+    // Setup loading and error states
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState(null);
+
+    // Fetch host vans from API
     React.useEffect(() => {
-        fetch('/api/host/vans')
-            .then((res) => res.json())
-            .then((data) => setHostVans(data.vans));
+        async function loadVans() {
+            setLoading(true);
+            try {
+                const data = await getHostVans();
+                setHostVans(data);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadVans();
     }, []);
-    console.log('hostVans:', hostVans);
 
     // Render host vans list
     const hostVanElements = hostVans.map((van) => (
@@ -31,6 +45,14 @@ export default function HostVans() {
             </Link>
         </div>
     ));
+
+    if (loading) {
+        return <h1>Loading...</h1>;
+    }
+
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>;
+    }
 
     return (
         <div className="host-vans-container">

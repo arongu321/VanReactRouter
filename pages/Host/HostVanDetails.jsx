@@ -1,24 +1,45 @@
 import React from 'react';
 import { useParams, Link, Outlet, NavLink } from 'react-router-dom';
+import { getHostVans } from '../../api';
 
 export default function HostVanDetails() {
     // Create React state for host van
     const [hostVan, setHostVan] = React.useState(null);
 
+    // Setup loading and error states
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState(null);
+
     // useParams is a hook that returns an object of key/value pairs of URL parameters
-    const params = useParams();
+    const { vanId } = useParams();
 
-    // Fetch data from the server(only once when the component mounts)
+    // Fetch host van data from API
     React.useEffect(() => {
-        fetch(`/api/host/vans/${params.vanId}`)
-            .then((res) => res.json())
-            .then((data) => setHostVan(data.vans[0]));
-    }, []);
+        async function loadVans() {
+            setLoading(true);
+            try {
+                const data = await getHostVans(vanId);
+                setHostVan(data);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        }
 
-    console.log(hostVan);
+        loadVans();
+    }, [vanId]);
+
+    if (loading) {
+        return <h1>Loading...</h1>;
+    }
+
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>;
+    }
 
     return (
-        <section>
+        <section className="host-van-details">
             {/* Go back to host vans page by making it relative to the path not route*/}
             <Link to=".." relative="path" className="link-button">
                 &larr;<span>Back to All Vans</span>
