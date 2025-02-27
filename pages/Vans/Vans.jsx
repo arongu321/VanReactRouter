@@ -3,31 +3,45 @@ import { getVans } from '../../api';
 import { Link, useSearchParams } from 'react-router-dom';
 
 export default function Vans() {
-    const [vans, setVans] = React.useState([]);
-
     // Used to access URL query search parameters
     const [searchParams, setSearchParams] = useSearchParams();
+
+    // Used to access array of vans
+    const [vans, setVans] = React.useState([]);
 
     // Used to track loading state
     const [loading, setLoading] = React.useState(false);
 
-    React.useEffect(() => {
-        async function fetchVans() {
-            setLoading(true);
-            const data = await getVans();
-            setVans(data);
-            setLoading(false);
-        }
-        fetchVans();
-    }, []);
+    // Used to track error state
+    const [error, setError] = React.useState(null);
 
     // Filter vans based on query search parameters for type
     const typeFilter = searchParams.get('type');
 
+    React.useEffect(() => {
+        async function fetchVans() {
+            setLoading(true);
+            try {
+                const data = await getVans();
+                setVans(data);
+
+                // Catch any errors and set the error state
+            } catch (err) {
+                setError(err);
+            } finally {
+                // Set loading to false after the fetch is complete
+                setLoading(false);
+            }
+        }
+        fetchVans();
+    }, []);
+
+    // Get filtered vans if there is an active type filter
     const displayedVans = typeFilter
         ? vans.filter((van) => van.type === typeFilter)
         : vans;
 
+    // Render van elements
     const vanElements = displayedVans.map((van) => (
         <div key={van.id} className="van-card">
             <Link
@@ -67,8 +81,14 @@ export default function Vans() {
         });
     }
 
+    // Display loading message if data is still loading
     if (loading) {
         return <h1>Loading...</h1>;
+    }
+
+    // Display error message if there is an error
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>;
     }
 
     return (

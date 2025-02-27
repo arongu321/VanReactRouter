@@ -29,7 +29,7 @@ a {
 }
 
 h1 {
-    margin-left: 23px;
+    padding-left: 23px;
 }
 
 body::-webkit-scrollbar {
