@@ -83,12 +83,14 @@ export default function Vans() {
 
     // Display loading message if data is still loading
     if (loading) {
-        return <h1>Loading...</h1>;
+        return <h1 aria-live="polite">Loading...</h1>;
     }
 
     // Display error message if there is an error
     if (error) {
-        return <h1>There was an error: {error.message}</h1>;
+        return (
+            <h1 aria-live="assertive">There was an error: {error.message}</h1>
+        );
     }
 
     return (
