@@ -19,7 +19,7 @@ import Login from './pages/Login';
 import AuthRequired from './components/AuthRequired';
 
 // Firebase will not work if you uncomment this line
-// import './server';
+import './server';
 
 export default function App() {
     return (

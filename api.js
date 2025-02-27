@@ -6,6 +6,8 @@ import {
     getDocs,
     doc,
     getDoc,
+    query,
+    where,
 } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -20,6 +22,7 @@ console.log(db);
 // Refactor fetching functions
 const vansCollectionRef = collection(db, 'vans');
 
+// Function to fetch vans from Firestore database
 export async function getVans() {
     const snapshot = await getDocs(vansCollectionRef);
     const vans = snapshot.docs.map((doc) => ({
@@ -29,6 +32,7 @@ export async function getVans() {
     return vans;
 }
 
+// Function to fetch a single van from Firestore database
 export async function getVan(id) {
     const vanDoc = doc(db, 'vans', id);
     const snapshot = await getDoc(vanDoc);
@@ -46,6 +50,7 @@ export async function getVan(id) {
     }
 }
 
+// Function to fetch vans from mock API
 export async function getVansMock(id) {
     const url = id ? `/api/vans/${id}` : '/api/vans';
     const res = await fetch(url);
@@ -60,7 +65,19 @@ export async function getVansMock(id) {
     return data.vans;
 }
 
-export async function getHostVans(id) {
+// Function to fetch vans owned by user of hostId 123(for testing only)
+export async function getHostVans() {
+    const q = query(vansCollectionRef, where('hostId', '==', '123'));
+    const snapshot = await getDocs(q);
+    const vans = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+    }));
+    return vans;
+}
+
+// Function to fetch vans owned by user of hostId 123 from mock API
+export async function getHostVansMock(id) {
     const url = id ? `/api/host/vans/${id}` : '/api/host/vans';
     const res = await fetch(url);
     if (!res.ok) {
@@ -74,6 +91,7 @@ export async function getHostVans(id) {
     return data.vans;
 }
 
+// Function to login user using mock API
 export async function loginUser(creds) {
     const res = await fetch('/api/login', {
         method: 'post',
