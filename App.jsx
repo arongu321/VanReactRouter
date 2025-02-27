@@ -5,7 +5,6 @@ import Vans from './pages/Vans/Vans';
 import Home from './pages/Home';
 import VanDetails from './pages/Vans/VanDetails';
 import Layout from './components/Layout';
-import './server';
 import Dashboard from './pages/Host/Dashboard';
 import Income from './pages/Host/Income';
 import Reviews from './pages/Host/Reviews';
@@ -15,6 +14,9 @@ import HostVanDetails from './pages/Host/HostVanDetails';
 import HostVanPhotos from './pages/Host/HostVanPhotos';
 import HostVanPricing from './pages/Host/HostVanPricing';
 import HostVanInfo from './pages/Host/HostVanInfo';
+import NotFound from './components/NotFound';
+
+import './server';
 
 export default function App() {
     return (
@@ -40,6 +42,7 @@ export default function App() {
                         <Route path="reviews" element={<Reviews />} />
                         <Route path="reviews" element={<Reviews />} />
                     </Route>
+                    <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>
         </BrowserRouter>
