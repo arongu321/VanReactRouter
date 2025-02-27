@@ -29,7 +29,7 @@ export default function Vans() {
     const vanElements = displayedVans.map((van) => (
         <div key={van.id} className="van-card">
             <Link
-                to={`/vans/${van.id}`}
+                to={van.id}
                 aria-label={`View van details priced at $${van.price} per day`}
             >
                 <img
