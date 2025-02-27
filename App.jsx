@@ -26,10 +26,10 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/vans" element={<Vans />} />
-                    <Route path="/vans/:vanId" element={<VanDetails />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="vans" element={<Vans />} />
+                    <Route path="vans/:vanId" element={<VanDetails />} />
+                    <Route path="login" element={<Login />} />
                     <Route element={<AuthRequired />}>
                         <Route path="host" element={<HostLayout />}>
                             <Route index element={<Dashboard />} />
