@@ -19,7 +19,6 @@ export default function Login() {
         loginUser(loginFormData)
             .then((data) => {
                 setError(null);
-                console.log('Success!');
                 navigate('../host');
             })
             .catch((err) => setError(err))
