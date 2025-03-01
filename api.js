@@ -8,7 +8,7 @@ import {
     getDoc,
     query,
     where,
-} from 'firebase/firestore';
+} from 'firebase/firestore/lite';
 
 // Your web app's Firebase configuration
 import firebaseCreds from './firebaseCreds.js';
@@ -18,7 +18,7 @@ const firebaseConfig = firebaseCreds();
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-console.log(db);
+
 // Refactor fetching functions
 const vansCollectionRef = collection(db, 'vans');
 
@@ -35,19 +35,25 @@ export async function getVans() {
 // Function to fetch a single van from Firestore database
 export async function getVan(id) {
     const vanDoc = doc(db, 'vans', id);
-    const snapshot = await getDoc(vanDoc);
-    if (snapshot.exists()) {
-        return {
-            ...snapshot.data(),
-            id: snapshot.id,
-        };
-    } else {
-        throw {
-            message: 'Van not found',
-            statusText: 'Not Found',
-            status: 404,
-        };
-    }
+    const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Request timed out')), 10000)
+    );
+    const request = getDoc(vanDoc).then((snapshot) => {
+        if (snapshot.exists()) {
+            return {
+                ...snapshot.data(),
+                id: snapshot.id,
+            };
+        } else {
+            throw {
+                message: 'Van not found',
+                statusText: 'Not Found',
+                status: 404,
+            };
+        }
+    });
+
+    return Promise.race([timeout, request]);
 }
 
 // Function to fetch vans from mock API
