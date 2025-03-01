@@ -13,7 +13,7 @@ export default function Header() {
             </NavLink>
             <nav>
                 <NavLink
-                    to="/host"
+                    to="host"
                     className={({ isActive }) =>
                         isActive ? 'active-link' : null
                     }
@@ -21,7 +21,7 @@ export default function Header() {
                     Host
                 </NavLink>
                 <NavLink
-                    to="/about"
+                    to="about"
                     className={({ isActive }) =>
                         isActive ? 'active-link' : null
                     }
@@ -29,7 +29,7 @@ export default function Header() {
                     About
                 </NavLink>
                 <NavLink
-                    to="/vans"
+                    to="vans"
                     className={({ isActive }) =>
                         isActive ? 'active-link' : null
                     }
@@ -37,7 +37,7 @@ export default function Header() {
                     Vans
                 </NavLink>
                 <NavLink
-                    to="/login"
+                    to="login"
                     className={({ isActive }) =>
                         isActive ? 'active-link' : null
                     }
